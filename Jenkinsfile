@@ -34,6 +34,9 @@ pipeline {
         }
 
         stage('SonarAnalysis') {
+            environment {
+                SONAR_TOKEN = credentials('sonar-token') // Accessing the SonarQube token stored in Jenkins credentials
+            }
             steps {
                 bat '''
                 mvn clean verify sonar:sonar \
