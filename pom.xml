@@ -52,9 +52,10 @@
                 <artifactId>sonar-maven-plugin</artifactId>
                 <version>4.0.0.4121</version>
                 <configuration>
+                    <!-- Include only the test files in sonar analysis -->
                     <sonar.test.inclusions>src/test/java/**/*.java</sonar.test.inclusions>
-                    <!-- Exclude all non-test files from Sonar analysis (this prevents conflict) -->
-                    <sonar.exclusions>**/*</sonar.exclusions>
+                    <!-- Exclude main source files completely from sonar analysis -->
+                    <sonar.exclusions>**/src/main/java/**/*</sonar.exclusions>
                 </configuration>
             </plugin>
         </plugins>
