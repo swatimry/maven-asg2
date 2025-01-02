@@ -28,7 +28,6 @@
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>4.14.0</version>
-            <scope>test</scope>
         </dependency>
 
         <!-- JaCoCo Agent dependency -->
@@ -61,15 +60,21 @@
                 <version>0.8.8</version>
                 <executions>
                     <execution>
+                        <phase>test</phase>
                         <goals>
-                            <goal>prepare-agent</goal> <!-- Initializes JaCoCo agent before test phase -->
-                            <goal>report</goal> <!-- Generates the code coverage report after tests -->
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>report</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.directory}/site/jacoco</outputDirectory> <!-- Define output directory -->
+                            <outputDirectory>${project.build.directory}/site/jacoco</outputDirectory>
                             <reportFormats>
-                                <reportFormat>xml</reportFormat> <!-- Generate the report in XML format -->
-                                <reportFormat>html</reportFormat> <!-- You can also generate HTML if desired -->
+                                <reportFormat>xml</reportFormat>
+                                <reportFormat>html</reportFormat>
                             </reportFormats>
                         </configuration>
                     </execution>
@@ -82,14 +87,8 @@
                 <artifactId>sonar-maven-plugin</artifactId>
                 <version>4.0.0.4121</version>
                 <configuration>
-                    <!-- Include only the test files in sonar analysis -->
-                    <sonar.test.inclusions>src/test/java/**/*.java</sonar.test.inclusions>
-                    <!-- Exclude main source files completely from sonar analysis -->
-                    <sonar.exclusions>**/src/main/java/**/*</sonar.exclusions>
-                    <!-- Specify the compiled classes directory -->
                     <sonar.java.binaries>target/classes</sonar.java.binaries>
-                    <!-- Path to the JaCoCo report -->
-                    <sonar.jacoco.reportPaths>${project.build.directory}/site/jacoco/jacoco.xml</sonar.jacoco.reportPaths> <!-- Path to XML report -->
+                    <sonar.coverage.jacoco.xmlReportPaths>${project.build.directory}/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
                 </configuration>
             </plugin>
         </plugins>
