@@ -43,9 +43,7 @@ pipeline {
                -Dsonar.projectKey=swati-maven-asg2 \
                -Dsonar.projectName="swati-maven-asg2" \
                -Dsonar.host.url=http://localhost:9000 \
-               -Dsonar.sources=. \
-               -Dsonar.test.inclusions=src/test/java/**/*.java \
-               -Dsonar.exclusions=**/src/main/java/**/* \
+               -Dsonar.sources=src/main/java,src/test/java \
                -Dsonar.java.binaries=target/classes \
                -Dsonar.jacoco.reportPaths=target/site/jacoco/jacoco.xml \
                -Dsonar.token=%SONAR_TOKEN%
