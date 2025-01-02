@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        maven 'sonarmaven' 
+        maven 'sonarmaven'
     }
 
     environment {
@@ -23,6 +23,7 @@ pipeline {
                 '''
             }
         }
+
         stage('Test') {
             steps {
                 bat '''
@@ -39,11 +40,12 @@ pipeline {
                 bat '''
                 mvn clean verify sonar:sonar \
                 -Dsonar.projectKey=swati-maven-asg2 \
-                -Dsonar.projectName='swati-maven-asg2' \
+                -Dsonar.projectName="swati-maven-asg2" \
                 -Dsonar.host.url=http://localhost:9000 \
-                -Dsonar.sources=.
-                -Dsonar.token=sqp_5c07786769ea680df828c240117fbb0472ce12c3
-                
+                -Dsonar.sources=. \
+                -Dsonar.test.inclusions=src/test/java/**/*.java \
+                -Dsonar.exclusions=**/src/main/java/**/* \
+                -Dsonar.token=${SONAR_TOKEN}
                 '''
             }
         }
