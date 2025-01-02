@@ -30,6 +30,12 @@
             <version>4.14.0</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.jacoco</groupId>
+            <artifactId>org.jacoco.agent</artifactId>
+            <version>0.8.8</version>
+            <scope>test</scope>
+        </dependency>     
     </dependencies>
 
     <build>
@@ -45,6 +51,19 @@
                     </includes>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.8</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal> <!-- Initializes JaCoCo agent before test phase -->
+                            <goal>report</goal> <!-- Generates the code coverage report after tests -->
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>     
 
             <!-- Sonar Plugin -->
             <plugin>
@@ -56,6 +75,7 @@
                     <sonar.test.inclusions>src/test/java/**/*.java</sonar.test.inclusions>
                     <!-- Exclude main source files completely from sonar analysis -->
                     <sonar.exclusions>**/src/main/java/**/*</sonar.exclusions>
+                    <sonar.jacoco.reportPaths>target/jacoco.exec</sonar.jacoco.reportPaths>
                 </configuration>
             </plugin>
         </plugins>
