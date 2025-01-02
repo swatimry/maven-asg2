@@ -13,19 +13,19 @@ public class LoginAutomationTest {
  WebDriver driver = new ChromeDriver();
  try {
  // Navigate to the login page
- driver.get("https://example.com/login");
+ driver.get("http://the-internet.herokuapp.com/login");
+
  // Locate the username and password fields
  WebElement usernameField = driver.findElement(By.id("username"));
  WebElement passwordField = driver.findElement(By.id("password"));
- WebElement loginButton = driver.findElement(By.id("loginButton"));
+  WebElement loginButton = driver.findElement(By.cssSelector("button[type='submit']"));
  // Perform login
- usernameField.sendKeys("testUser");
- passwordField.sendKeys("testPassword");
+ usernameField.sendKeys("tomsmith");
+ passwordField.sendKeys("SuperSecretPassword!");
  loginButton.click();
  // Validate successful login
- String expectedTitle = "Dashboard";
- String actualTitle = driver.getTitle();
- assertEquals(expectedTitle, actualTitle);
+ WebElement successMessage = driver.findElement(By.cssSelector("div.flash.success"));
+ assertTrue(successMessage.getText().contains("You logged into a secure area!"));
  } finally {
  // Close the browser
  driver.quit();
