@@ -52,8 +52,8 @@
                 <artifactId>sonar-maven-plugin</artifactId>
                 <version>4.0.0.4121</version>
                 <configuration>
-                    <sonar.inclusions>src/main/java/**/*.java</sonar.inclusions>
-                    <sonar.test.inclusions>src/test/java/com/example/automation/LoginAutomationTest.java</sonar.test.inclusions>
+                    <sonar.test.inclusions>src/test/java/**/*.java</sonar.test.inclusions>
+                    <!-- Exclude all non-test files from Sonar analysis (this prevents conflict) -->
                     <sonar.exclusions>**/*</sonar.exclusions>
                 </configuration>
             </plugin>
