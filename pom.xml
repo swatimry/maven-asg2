@@ -69,6 +69,7 @@
                             <outputDirectory>${project.build.directory}/site/jacoco</outputDirectory> <!-- Define output directory -->
                             <reportFormats>
                                 <reportFormat>xml</reportFormat> <!-- Generate the report in XML format -->
+                                <reportFormat>html</reportFormat> <!-- You can also generate HTML if desired -->
                             </reportFormats>
                         </configuration>
                     </execution>
@@ -88,7 +89,7 @@
                     <!-- Specify the compiled classes directory -->
                     <sonar.java.binaries>target/classes</sonar.java.binaries>
                     <!-- Path to the JaCoCo report -->
-                    <sonar.jacoco.reportPaths>${project.build.directory}/site/jacoco/jacoco.xml</sonar.jacoco.reportPaths>
+                    <sonar.jacoco.reportPaths>${project.build.directory}/site/jacoco/jacoco.xml</sonar.jacoco.reportPaths> <!-- Path to XML report -->
                 </configuration>
             </plugin>
         </plugins>
