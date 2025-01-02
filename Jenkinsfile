@@ -46,7 +46,7 @@ pipeline {
                -Dsonar.sources=. \
                -Dsonar.test.inclusions=src/test/java/**/*.java \
                -Dsonar.exclusions=**/src/main/java/**/* \
-               -Dsonar.java.binaries=target/classes \ 
+               -Dsonar.java.binaries=target/classes \
                -Dsonar.jacoco.reportPaths=target/site/jacoco/jacoco.xml \
                -Dsonar.token=%SONAR_TOKEN%
                 '''
