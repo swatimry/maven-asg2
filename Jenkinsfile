@@ -43,7 +43,7 @@ pipeline {
                 -Dsonar.sources=. \
                 -Dsonar.test.inclusions=src/test/java/**/*.java \
                 -Dsonar.exclusions=**/src/main/java/**/* \
-                -Dsonar.token=${SONAR_TOKEN}  // Use the Sonar token securely stored in Jenkins
+                -Dsonar.token=%SONAR_TOKEN%  // Use the Sonar token securely stored in Jenkins
                 '''
             }
         }
