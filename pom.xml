@@ -93,8 +93,6 @@
                 <configuration>
                     <!-- Include only the test files in sonar analysis -->
                     <sonar.test.inclusions>src/test/java/**/*.java</sonar.test.inclusions>
-                    <!-- Exclude main source files completely from sonar analysis -->
-                    <sonar.exclusions>**/src/main/java/**/*</sonar.exclusions>
                     <!-- Specify the compiled classes directory -->
                     <sonar.java.binaries>target/classes</sonar.java.binaries>
                     <!-- Path to the JaCoCo report -->
