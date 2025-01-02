@@ -7,6 +7,7 @@ pipeline {
 
     environment {
         SONARQUBE_SERVER = 'sonarqube'
+        SONAR_TOKEN = credentials('sonar-token')  // Make sure this corresponds to your SonarQube token stored in Jenkins credentials
     }
 
     stages {
@@ -33,9 +34,6 @@ pipeline {
         }
 
         stage('SonarAnalysis') {
-            environment {
-                SONAR_TOKEN = credentials('sonar-token') 
-            }
             steps {
                 bat '''
                 mvn clean verify sonar:sonar \
@@ -45,7 +43,7 @@ pipeline {
                 -Dsonar.sources=. \
                 -Dsonar.test.inclusions=src/test/java/**/*.java \
                 -Dsonar.exclusions=**/src/main/java/**/* \
-                -Dsonar.token=${SONAR_TOKEN}
+                -Dsonar.token=${SONAR_TOKEN}  // Use the Sonar token securely stored in Jenkins
                 '''
             }
         }
