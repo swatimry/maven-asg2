@@ -86,19 +86,28 @@
             </plugin>
 
             <!-- Sonar Plugin to send analysis to SonarQube -->
-            <plugin>
-                <groupId>org.sonarsource.scanner.maven</groupId>
-                <artifactId>sonar-maven-plugin</artifactId>
-                <version>4.0.0.4121</version>
-                <configuration>
-                    <!-- Include only the test files in sonar analysis -->
-                    <sonar.test.inclusions>src/test/java/**/*.java</sonar.test.inclusions>
-                    <!-- Specify the compiled classes directory -->
-                    <sonar.java.binaries>target/classes</sonar.java.binaries>
-                    <!-- Path to the JaCoCo report -->
-                    <sonar.jacoco.reportPaths>${project.build.directory}/site/jacoco/jacoco.xml</sonar.jacoco.reportPaths>
-                </configuration>
-            </plugin>
+           <plugin>
+            <groupId>org.sonarsource.scanner.maven</groupId>
+            <artifactId>sonar-maven-plugin</artifactId>
+            <version>3.9.1.2184</version> <!-- Or a version that supports your parameters -->
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>sonar</goal>
+                    </goals>
+                    <configuration>
+                        <sonar.projectKey>swati-maven-asg2</sonar.projectKey>
+                        <sonar.projectName>swati-maven-asg2</sonar.projectName>
+                        <sonar.host.url>http://localhost:9000</sonar.host.url>
+                        <sonar.sources>src/main/java</sonar.sources>
+                        <sonar.test.inclusions>src/test/java/**/*.java</sonar.test.inclusions>
+                        <sonar.exclusions>**/src/main/java/**/*Test.java,**/test/**/*</sonar.exclusions>
+                        <sonar.java.binaries>target/classes</sonar.java.binaries>
+                        <sonar.jacoco.reportPaths>target/site/jacoco/jacoco.xml</sonar.jacoco.reportPaths>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
         </plugins>
     </build>
 </project>
