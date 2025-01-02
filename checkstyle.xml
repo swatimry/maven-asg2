@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle>
+    <module name="Checker">
+        <!-- Define TreeWalker module for general checks -->
+        <module name="TreeWalker">
+            <module name="Header">
+                <property name="header" value="/* Your header comment */"/>
+                <property name="allowMultiple" value="true"/>
+            </module>
+            <module name="JavadocMethod"/>
+            <module name="MethodName"/>
+        </module>
+
+        <!-- Define LineLength check as a separate module -->
+        <module name="LineLength">
+            <property name="max" value="120"/>
+            <property name="ignorePattern" value="^package.*|^import.*"/>
+        </module>
+    </module>
+</checkstyle>
