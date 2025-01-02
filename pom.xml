@@ -99,7 +99,8 @@
                         <sonar.projectKey>swati-maven-asg2</sonar.projectKey>
                         <sonar.projectName>swati-maven-asg2</sonar.projectName>
                         <sonar.host.url>http://localhost:9000</sonar.host.url>
-                        <sonar.sources>src/main/java</sonar.sources>
+                        <sonar.sources>src/main/java/com/example/automation/pages</sonar.sources>
+                        <sonar.test.inclusions>src/test/java/**/*.java</sonar.test.inclusions>
                         <sonar.test.inclusions>src/test/java/**/*.java</sonar.test.inclusions>
                         <sonar.exclusions>**/src/main/java/**/*Test.java,**/test/**/*</sonar.exclusions>
                         <sonar.java.binaries>target/classes</sonar.java.binaries>
