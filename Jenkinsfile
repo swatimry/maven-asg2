@@ -46,6 +46,7 @@ pipeline {
                -Dsonar.sources=. \
                -Dsonar.test.inclusions=src/test/java/**/*.java \
                -Dsonar.exclusions=**/src/main/java/**/* \
+               -Dsonar.java.binaries=target/classes \
                -Dsonar.token=%SONAR_TOKEN%
                 '''
             }
