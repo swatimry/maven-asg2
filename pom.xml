@@ -1,12 +1,26 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+     <modelVersion>4.0.0</modelVersion>
+  <groupId>com.example.maven_asg2</groupId>
+  <artifactId>maven_asg2_t2</artifactId>
+  <packaging>jar</packaging>
 
-    <groupId>com.example</groupId>
-    <artifactId>swati-maven-asg2</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+
+  <version>1.0-SNAPSHOT</version>
+  <name>maven_assesment</name>
+  <url>http://maven.apache.org</url>
+ 
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <sonar.host.url>http://localhost:9000</sonar.host.url>
+        <sonar.projectKey>asg2</sonar.projectKey>
+         <sonar.login>sqp_6cb55ef701eaae502e803acc2cc11e820e742eb6</sonar.login>
+        <spring.boot.version>2.7.5</spring.boot.version> 
+    </properties>
 
     <dependencies>
         <!-- JUnit 5 dependencies -->
